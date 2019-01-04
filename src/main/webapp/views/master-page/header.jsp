@@ -42,6 +42,15 @@
 			</li>
 		</security:authorize>
 		
+		<security:authorize access="hasRole('REFEREE')">
+			<li><a class="fNiv"><spring:message	code="master.page.referee" /></a>
+				<ul>
+					<li class="arrow"></li>	
+					<li><a href="report/referee/list.do"><spring:message code="master.page.report.list" /></a></li>			
+				</ul>
+			</li>
+		</security:authorize>
+		
 		<security:authorize access="isAnonymous()">
 			<li><a class="fNiv" href="security/login.do"><spring:message code="master.page.login" /></a></li>
 		</security:authorize>
@@ -56,7 +65,8 @@
 					<li class="arrow"></li>
 					<li><a href="profile/action-1.do"><spring:message code="master.page.profile.action.1" /></a></li>
 					<li><a href="profile/action-2.do"><spring:message code="master.page.profile.action.2" /></a></li>
-					<li><a href="profile/action-3.do"><spring:message code="master.page.profile.action.3" /></a></li>					
+					<li><a href="profile/action-3.do"><spring:message code="master.page.profile.action.3" /></a></li>	
+					<li><a href="report/listFinalMode.do"><spring:message code="master.page.report.list.finalmode" /></a></li>					
 					<li><a href="j_spring_security_logout"><spring:message code="master.page.logout" /> </a></li>
 				</ul>
 			</li>

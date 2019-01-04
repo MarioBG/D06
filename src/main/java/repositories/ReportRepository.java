@@ -25,4 +25,6 @@ public interface ReportRepository extends JpaRepository<Report, Integer> {
 	@Query("select com.report from HandyWorker c join c.applications ap join ap.fixUpTask.complaints com where c.id = ?1 and ap.status = 'ACCEPTED'")
 	Collection<Report> findReportsByHandyWorkerId(int handyWorkerId);
 
+	@Query("select re from Report re where re.finalMode=true")
+	Collection<Report> findFinalModeReports();
 }
