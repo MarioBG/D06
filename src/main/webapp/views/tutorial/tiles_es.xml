@@ -16,24 +16,24 @@
       
 <tiles-definitions>
 	
-	<definition name="tutorial/viewTutorial" extends="master.page">	
+	<definition name="tutorial/display" extends="master.page">	
 		<put-attribute name="title" value="Tutorial" />
-		<put-attribute name="body" value="/views/tutorial/viewTutorial.jsp" />
+		<put-attribute name="body" value="/views/tutorial/display.jsp" />
 	</definition>
 	
-	<definition name="tutorial/editTutorial" extends="master.page">	
-		<put-attribute name="title" value="Edit" />
-		<put-attribute name="body" value="/views/tutorial/editTutorial.jsp" />
+	<definition name="tutorial/list" extends="master.page">	
+		<put-attribute name="title" value="Listar tutoriales" />
+		<put-attribute name="body" value="/views/tutorial/list.jsp" />
 	</definition>
 	
-	<definition name="tutorial/createTutorial" extends="master.page">	
-		<put-attribute name="title" value="Create" />
-		<put-attribute name="body" value="/views/tutorial/createTutorial.jsp" />
+	<definition name="tutorial/edit" extends="master.page">	
+		<put-attribute name="title" value="Editar tutorial" />
+		<put-attribute name="body" value="/views/tutorial/edit.jsp" />
 	</definition>
 	
-	<definition name="tutorial/tutorialPictures" extends="master.page">	
-		<put-attribute name="title" value="Pictures" />
-		<put-attribute name="body" value="/views/tutorial/tutorialPictures.jsp" />
+	<definition name="tutorial/create" extends="master.page">	
+		<put-attribute name="title" value="Crear tutorial" />
+		<put-attribute name="body" value="/views/tutorial/create.jsp" />
 	</definition>
 	
 </tiles-definitions>

@@ -1,3 +1,4 @@
+
 package services;
 
 import java.util.ArrayList;
@@ -9,16 +10,21 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
-import domain.Section;
 import repositories.SectionRepository;
+import domain.Section;
+import domain.Tutorial;
 
 @Service
 @Transactional
 public class SectionService {
 
+	@Autowired
+	private TutorialService		tutorialService;
+
 	// Managed Repository
 	@Autowired
-	private SectionRepository sectionRepository;
+	private SectionRepository	sectionRepository;
+
 
 	// Constructor
 	public SectionService() {
@@ -68,7 +74,9 @@ public class SectionService {
 	}
 
 	public void delete(Section entity) {
-		sectionRepository.delete(entity);
+		Tutorial tut = this.tutorialService.findForSectionId(entity.getId());
+		this.tutorialService.removeSection(tut, entity);
+		this.sectionRepository.delete(entity);
 	}
 
 	// Other Business

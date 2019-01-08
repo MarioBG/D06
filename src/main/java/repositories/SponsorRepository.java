@@ -13,4 +13,7 @@ public interface SponsorRepository extends JpaRepository<Sponsor, Integer> {
 	@Query("select s from Sponsor s where s.userAccount.id = ?1")
 	Sponsor findByUserAccountId(int id);
 
+	@Query("select s from Sponsor s join s.sponsorships ss where ss.id = ?1")
+	Sponsor findForSponsorshipId(int id);
+
 }

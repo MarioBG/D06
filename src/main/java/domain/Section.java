@@ -9,13 +9,16 @@ import javax.validation.constraints.Min;
 
 import org.hibernate.validator.constraints.NotBlank;
 
+import cz.jirutka.validator.collection.constraints.EachURL;
+
 @Entity
 public class Section extends DomainEntity {
 
-	private String title;
-	private String text;
-	private Collection<String> pictures;
-	private int number;
+	private String				title;
+	private String				text;
+	private Collection<String>	pictures;
+	private int					number;
+
 
 	@NotBlank
 	public String getTitle() {
@@ -36,6 +39,7 @@ public class Section extends DomainEntity {
 	}
 
 	@ElementCollection(targetClass = String.class)
+	@EachURL
 	public Collection<String> getPictures() {
 		return this.pictures;
 	}

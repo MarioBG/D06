@@ -55,8 +55,37 @@
 		<security:intercept-url pattern="/profile/action-1.do" access="isAuthenticated()" /> 
 		<security:intercept-url pattern="/profile/action-2.do" access="isAuthenticated()" /> 
 		<security:intercept-url pattern="/profile/action-3.do" access="isAuthenticated()" /> 
-	
+		
+		<!-- TUTORIAL Permissions -->
+		
+		<security:intercept-url pattern="/tutorial/*" access="permitAll" />
+		<security:intercept-url pattern="/tutorial/list.do" access="permitAll" />
+		
+		<security:intercept-url pattern="/tutorial/handyworker/list.do" access="hasRole('HANDYWORKER')" />
+		<security:intercept-url pattern="/tutorial/handyworker/edit.do" access="hasRole('HANDYWORKER')" />
+		<security:intercept-url pattern="/tutorial/handyworker/create.do" access="hasRole('HANDYWORKER')" />
+		<security:intercept-url pattern="/tutorial/handyworker/delete.do" access="hasRole('HANDYWORKER')" /> 
+
+		<!-- SECTION Permissions -->
+		
+		<security:intercept-url pattern="/section/display.do" access="permitAll" />
+		<security:intercept-url pattern="/section/list.do" access="permitAll" />
+		
+		<security:intercept-url pattern="/section/handyworker/edit.do" access="hasRole('HANDYWORKER')" />
+		<security:intercept-url pattern="/section/handyworker/create.do" access="hasRole('HANDYWORKER')" />
+		<security:intercept-url pattern="/section/handyworker/delete.do" access="hasRole('HANDYWORKER')" /> 
+		
+		<!-- SPONSORSHIP Permissions -->
+		<security:intercept-url pattern="/sponsorship/sponsor/edit.do" access="hasRole('SPONSOR')" />
+		<security:intercept-url pattern="/sponsorship/sponsor/create.do" access="hasRole('SPONSOR')" />
+		<security:intercept-url pattern="/sponsorship/sponsor/delete.do" access="hasRole('SPONSOR')" /> 
+		<security:intercept-url pattern="/sponsorship/sponsor/list.do" access="hasRole('SPONSOR')" />
+		
+		<!-- GENERAL INTERCEPT - DO NOT TOUCH -->
+		
 		<security:intercept-url pattern="/**" access="hasRole('NONE')" />
+
+		<!-- END OF GENERAL INTERCEPT - DO NOT TOUCH -->
 
 		<security:form-login 
 			login-page="/security/login.do"

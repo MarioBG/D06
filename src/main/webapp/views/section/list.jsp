@@ -13,29 +13,28 @@
 <spring:message code="tutorial.updateTime" var="updateTime" ></spring:message>
 <spring:message code="tutorial.sumamary" var="summary" ></spring:message>
 
-<display:table name="tutorials" id="row"
-	requestURI="tutorial/handyworker/list.do" pagesize="5">
+<display:table name="sections" id="row"
+	requestURI="${requestURI}" pagesize="5">
 	<security:authorize access="hasRole('HANDYWORKER')">
-		<display:column>
-			<a href="tutorial/handyworker/editTutorial.do?tutorialId=${row.id}"> <spring:message
-					code="tutorial.edit"></spring:message>
-			</a>
-		</display:column>
-		<display:column>
-			<a href="tutorial/handyworker/viewTutorial.do?tutorialId=${row.id}"> <spring:message
-					code="tutorial.delete"></spring:message></a>
-		</display:column>
+		<jstl:if test="${ isOwner }">
+			<display:column>
+				<a href="tutorial/handyworker/edit.do?sectionId=${row.id}"> <spring:message
+						code="tutorial.edit"></spring:message>
+				</a>
+			</display:column>
+			<display:column>
+				<a href="tutorial/handyworker/delete.do?sectionId=${row.id}"> <spring:message
+						code="tutorial.delete"></spring:message></a>
+			</display:column>
+		</jstl:if>
 	</security:authorize>
 
 	<display:column property="title" title="${title}"></display:column>
 	<display:column property="updateTime" title="${updateTime}"></display:column>
 	<display:column property="summary" title="t${summary}"></display:column>
 	<display:column>
-
-		<input type="button" name="pictures"
-			value="<spring:message code="tutorial.pictures" />"
-			onclick="javascript: relativeRedir('tutorial/tutorialPictures.do');" />
-
+		<a href="tutorial/display.do?sectionId=${row.id}"> <spring:message
+				code="tutorial.delete"></spring:message></a>
 	</display:column>
 
 </display:table>

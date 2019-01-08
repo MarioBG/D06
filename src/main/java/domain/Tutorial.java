@@ -15,6 +15,8 @@ import javax.validation.constraints.Past;
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import cz.jirutka.validator.collection.constraints.EachURL;
+
 @Entity
 public class Tutorial extends DomainEntity {
 
@@ -54,6 +56,7 @@ public class Tutorial extends DomainEntity {
 	}
 
 	@ElementCollection(targetClass = String.class)
+	@EachURL
 	public Collection<String> getPictures() {
 		return this.pictures;
 	}

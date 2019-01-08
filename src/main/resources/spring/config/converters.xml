@@ -22,6 +22,15 @@
 			Add your own converters using entries of the following form: 
 			<bean class="converters.Class1ToClass2" /> 
 		-->
+		
+		<bean class="converters.EndorsementToStringConverter" />
+		<bean class="converters.SectionToStringConverter" />
+		<bean class="converters.TutorialToStringConverter" />
+		<bean class="converters.SponsorshipToStringConverter" />
+		<bean class="converters.StringToSponsorshipConverter" />
+		<bean class="converters.StringToTutorialConverter" />
+		<bean class="converters.StringToSectionConverter" />
+		<bean class="converters.StringToEndorsementConverter" /> 
 	</util:list>
 	
 </beans>

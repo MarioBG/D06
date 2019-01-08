@@ -14,31 +14,27 @@
 <title><spring:message code="tutorial.create" /></title>
 </head>
 <body>
-<form:form modelAttribute="tutorial" action="tutorial/handyworker/create.do">
+<form:form modelAttribute="section" action="section/handyworker/create.do">
+
+		<form:hidden path="tutorialId"/>
+		<form:hidden path="updateTime"/>
 		<!-- Title -->
 			 <form:label path="title">
-				<spring:message code="tutorial.title" />
+				<spring:message code="section.title" />
 			</form:label>
 			<form:input path="title" />
 			<form:errors path="title" />
 
-		<!-- Update Time -->
-			<form:label path="updateTime">
-				<spring:message code="tutorial.updateTime" />
-			</form:label>
-			<form:input path="updateTime" />
-			<form:errors path="updateTime" />
-
 		<!-- Summary -->
-			<form:label path="summary">
-				<spring:message code="tutorial.summary" />
+			<form:label path="text">
+				<spring:message code="section.text" />
 			</form:label>
-			<form:input path="summary" />
-			<form:errors path="summary" />
+			<form:input path="text" />
+			<form:errors path="text" />
 
 		<!-- Pictures -->
 		<form:label path="pictures">
-				<spring:message code="tutorial.pictures" />
+				<spring:message code="section.pictures" />
 			</form:label>
 		<form:textarea path="pictures" />
 			<form:errors path="pictures" /> 
@@ -46,8 +42,7 @@
 	</form:form>
 	
 	<input type="button" name="save"
-	value="<spring:message code="tutorial.save" />"
-	onclick="javascript: relativeRedir('tutorial/viewTutorial.do');" />
+	value="<spring:message code="tutorial.save" />"/>
 	
 	<input type="button" name="cancel"
 	value="<spring:message code="tutorial.cancel" />"

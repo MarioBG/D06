@@ -42,6 +42,30 @@
 			</li>
 		</security:authorize>
 		
+		<li><a class="fNiv"><spring:message	code="master.page.category.tutorials" /></a>
+			<ul>
+				<li class="arrow"></li>
+				<li><a href="tutorial/list.do"><spring:message code="master.page.tutorials.listAll" /></a></li>
+				<security:authorize access="hasRole('HANDYWORKER')">
+					<li><a href="tutorial/handyworker/create.do"><spring:message code="master.page.tutorials.create" /></a></li>
+					<li><a href="tutorial/handyworker/list.do"><spring:message code="master.page.tutorials.mine" /></a></li>
+				</security:authorize>					
+			</ul>
+		</li>
+		
+		<security:authorize access="hasRole('SPONSOR')">
+			<li>
+				<a class="fNiv"> 
+					<spring:message code="master.page.sponsorship" />
+				</a>
+				<ul>
+					<li class="arrow"></li>
+					<li><a href="sponsorship/sponsor/list.do"><spring:message code="master.page.sponsorship.listMine" /></a></li>
+					<li><a href="sponsorship/sponsor/create.do"><spring:message code="master.page.sponsorship.sponsorTutorial" /></a></li>
+				</ul>
+			</li>
+		</security:authorize>
+		
 		<security:authorize access="isAnonymous()">
 			<li><a class="fNiv" href="security/login.do"><spring:message code="master.page.login" /></a></li>
 		</security:authorize>

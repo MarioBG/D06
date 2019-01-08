@@ -160,4 +160,12 @@ public class SponsorService {
 		return res;
 	}
 
+	public void removeSponsorshipWhereBelongs(Sponsorship sponsorship) {
+		Sponsor sponsor = this.sponsorRepository.findForSponsorshipId(sponsorship.getId());
+		Collection<Sponsorship> sponsorships = sponsor.getSponsorships();
+		sponsorships.remove(sponsorship);
+		sponsor.setSponsorships(sponsorships);
+		this.sponsorRepository.save(sponsor);
+	}
+
 }

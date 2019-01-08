@@ -311,6 +311,14 @@
 			<artifactId>aspectjweaver</artifactId>
 			<version>1.7.4</version>
 		</dependency>
+		
+		<!-- Collection validation -->
+		
+		<dependency>
+		  <groupId>cz.jirutka.validator</groupId>
+		  <artifactId>validator-collection</artifactId>
+		  <version>2.2.0</version>
+		</dependency>
 
 	</dependencies>
 
